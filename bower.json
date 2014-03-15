@@ -1,0 +1,18 @@
+{
+  "name": "markly",
+  "version": "0.0.0",
+  "authors": [
+    "Zulfa Juniadi Zulkifli <zulfajuniadi@gmail.com>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
