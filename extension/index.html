@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Markly</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/options.css">
+</head>
+<body class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>
+        <input type="search" id="search" placeholder="search" autofocus class="pull-right">
+      </h3>
+    </div>
+  </div>
+  <div class="row">
+    <div id="bookmarks" class="col-md-12"></div>
+  </div>
+  <template id="listChild">
+    <div id="masonry">
+    {{#each data}}
+      <span class="panel" data-url="{{url}}">
+        {{{makeImage url}}}
+        <div class="caption text-center">
+          <h3>{{title}}</h3>
+          <p>
+            {{{makeLink url}}}
+            <ul class="tags list-unstyled list-inline">{{#each tags}}<li>{{this}}</li>{{/each}}<li class="editTags">&#9998;</li></ul>
+          </p>
+        </div>
+        <div class="clearfix"></div>
+        <span class="remove">
+          &times;
+        </span>
+      </span>
+    {{/each}}
+    </div>
+  </template>
+  <script src="src/browser_action/jquery.js"></script>
+  <script src="src/browser_action/lodash.js"></script>
+  <script src="js/backbone.js"></script>
+  <script src="js/handlebars.js"></script>
+  <script src="js/mousetrap.js"></script>
+  <script src="js/highlight.js"></script>
+  <script src="js/masonry.js"></script>
+  <script src="js/option.js"></script>
+</body>
+</html>

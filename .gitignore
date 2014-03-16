@@ -1,3 +1,5 @@
 build
 bower_components
 .DS_STORE
+server/node_modules
+.releases

@@ -1,0 +1,113 @@
+.sidebar {
+  border-right: 1px solid;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+}
+
+#search {
+  width: 100%;
+  display: block;
+  padding: 5px;
+  border: 1px solid #CCC;
+  border-radius: 3px;
+}
+
+#bookmarks {
+  margin-top: 12px;
+}
+
+#bookmarks > ul > li {
+  border-bottom: 1px solid #ccc;
+  padding:3px;
+}
+#bookmarks > ul > li {
+  overflow: hidden;/*
+  text-overflow: ellipsis;
+  white-space: nowrap;*/
+}
+
+#bookmarks > ul > li .title {
+  display: block;
+  margin: 8px 0px;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.imageWrapper img {
+  width:100%;
+}
+
+.highlight {
+  background-color: #f8fbb3
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: searchfield-cancel-button;
+}
+
+.tags {
+  margin-left: 10px;
+  white-space: normal;
+  margin-top: 4px;
+}
+
+.tags li {
+   display: inline-block;
+   color: white;
+   background-color: #0c78ea;
+   /*margin:2px 9px 2px 2px;*/
+   margin:1px;
+   height:20px;
+   position:relative;
+   cursor: pointer;
+}
+
+.tags li.editTags {
+  display: none;
+}
+
+.panel:hover .tags li.editTags  {
+  display: inline-block;
+}
+
+/*.tags li:before {
+    content: ' ';
+    border: 10px solid transparent;
+    border-right-color: #0c78ea;
+    display:block;
+    position: absolute;
+    left:-20px;
+}*/
+
+.remove {
+  position: absolute;
+  top: -9px;
+  right: 1px;
+  border-radius: 50%;
+  background-color: #F00;
+  color: #FFF;
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  height: 21px;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.panel {
+  width: 200px;
+  padding: 5px;
+}
+
+.panel.active, .panel:hover {
+  background-color: #FDFBDA;
+}
+
+.panel:hover .remove {
+  visibility: visible;
+}
+
+#masonry h3 {
+font-size:18px;
+}

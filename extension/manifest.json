@@ -1,8 +1,8 @@
 {
-  "name": "CHANGE THIS : Extension boilerplate",
+  "name": "Markly",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "This extension was created with the awesome extensionizr.io",
+  "description": "This extension was created with the awesome extensionizr.com",
   "homepage_url": "http://extensionizr.com",
   "icons": {
     "16": "icons/icon16.png",
@@ -10,23 +10,38 @@
     "128": "icons/icon128.png"
   },
   "default_locale": "en",
+  "omnibox": { "keyword" : "@@" },
   "background": {
-    "page": "src/bg/background.html",
+    "scripts": [
+      "src/browser_action/jquery.js",
+      "src/browser_action/lodash.js",
+      "js/async.js",
+      "src/bg/background.js"
+    ],
     "persistent": true
   },
-  "options_page": "src/options_custom/index.html",
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "browser action demo",
+    "default_popup": "src/browser_action/browser_action.html"
+  },
   "permissions": [
-    "notifications",
-    "*"
+    "tabs",
+    "activeTab",
+    "storage"
   ],
-  "content_scripts": [
-    {
-      "matches": [
-        "https://www.google.com/*"
-      ],
-      "js": [
-        "src/inject/inject.js"
-      ]
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  },
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "windows": "Ctrl+Shift+B",
+        "mac": "Command+Shift+B",
+        "chromeos": "Ctrl+Shift+B",
+        "linux": "Ctrl+Shift+B"
+      }
     }
-  ]
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

@@ -1,0 +1,42 @@
+body {
+  width: 250px;
+}
+
+body, body * {
+  font-family: verdana;
+}
+
+#tagInput {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  display: block;
+  margin: 8px 0px;
+}
+
+ul, ul li {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+
+#tags li {
+  display: inline-block;
+  color: white;
+  background-color: #0c78ea;
+  margin:1px;
+  position:relative;
+  padding: 2px 5px;
+  font-size:12px;
+  height:15px;
+}
+
+ul {
+  font-size: 14px;
+}
+
+#tags li span {
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+}
