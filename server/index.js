@@ -15,6 +15,7 @@ var webshotOptions = {
     width: 1366,
     height: 800
   },
+  renderDelay: 5000,
   streamType: 'jpg',
   userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.149 Safari/537.36'
 };

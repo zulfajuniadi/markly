@@ -23,7 +23,7 @@ var images = {};
 Handlebars.registerHelper('makeImage', function(url){
   if(!images[url]) {
     var newImage = images[url] = new Image;
-    newImage.src = "http://images.zulfajuniadi.com/images/" + encodeURIComponent(url) + ".jpg"
+    newImage.src = "http://images.zulfajuniadi.com:8080/images/" + encodeURIComponent(url) + ".jpg"
   }
   var uuid = guid();
   setTimeout(function(){
