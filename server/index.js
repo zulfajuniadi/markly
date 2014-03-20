@@ -47,5 +47,5 @@ app.configure(function(){
   app.use('/images', qt.static(__dirname + '/images'));
 });
 
-app.listen(3333);
+app.listen(3333, '0.0.0.0');
 console.log('server listening');
