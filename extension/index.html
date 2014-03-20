@@ -20,14 +20,15 @@
   <template id="listChild">
     <div id="masonry">
     {{#each data}}
-      <span class="panel" data-url="{{url}}">
+      <span class="panel" tabindex="0" data-url="{{url}}">
         {{{makeImage url}}}
         <div class="caption text-center">
           <h3>{{title}}</h3>
           <p>
             {{{makeLink url}}}
-            <ul class="tags list-unstyled list-inline">{{#each tags}}<li>{{this}}</li>{{/each}}<li class="editTags">&#9998;</li></ul>
           </p>
+          <input type="text" class="tagInput" placeholder="Tags separated by ;">
+          <ul class="tags list-unstyled list-inline">{{#each tags}}<li><span class="delTag" title="' + tag + '">&times; </span>{{this}}</li>{{/each}}<li class="editTags">&#9998;</li></ul>
         </div>
         <div class="clearfix"></div>
         <span class="remove">

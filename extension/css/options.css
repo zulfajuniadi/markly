@@ -80,12 +80,44 @@ input[type="search"]::-webkit-search-cancel-button {
     left:-20px;
 }*/
 
+.panel {
+  width: 200px;
+  padding: 5px;
+}
+
+#masonry h3 {
+font-size:18px;
+}
+
+.panel input {
+    display: none;
+    width: 100%;
+}
+
+.panel .tags li span.delTag {
+  display: none;
+}
+
+.panel.editing input {
+    display: block;
+}
+
+.panel.editing li span.delTag {
+    display: inline;
+    cursor: pointer;
+}
+.panel.editing li {
+    cursor: default;
+}
+.tags .highlight {
+  color: #555;
+}
+
 .remove {
   position: absolute;
-  top: -9px;
-  right: 1px;
-  border-radius: 50%;
-  background-color: #F00;
+  top: 0px;
+  right: 0px;
+  background-color: #0c78ea;
   color: #FFF;
   display: inline-block;
   width: 20px;
@@ -95,19 +127,17 @@ input[type="search"]::-webkit-search-cancel-button {
   cursor: pointer;
 }
 
-.panel {
-  width: 200px;
-  padding: 5px;
+.panel:hover, .panel:focus {
+  outline: -webkit-focus-ring-color auto 0px;
+  box-shadow: inset 0px 0px 0px 2px #0c78ea;
+  border-radius:0px;
+  background-color: #fdfbda;
 }
 
-.panel.active, .panel:hover {
-  background-color: #FDFBDA;
-}
-
-.panel:hover .remove {
+.panel:hover .remove, .panel:focus .remove {
   visibility: visible;
 }
 
-#masonry h3 {
-font-size:18px;
+.panel:hover .remove:hover, .panel:focus .remove:hover {
+  background-color: red;
 }

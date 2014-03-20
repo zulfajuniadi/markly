@@ -2,7 +2,6 @@
 //   return encodeURIComponent(url);
 // });
 
-
 function s4() {
   return Math.floor((1 + Math.random()) * 0x10000)
    .toString(16)
@@ -17,7 +16,7 @@ function guid() {
 var parser = document.createElement('a');
 Handlebars.registerHelper('makeLink', function(url){
   parser.href = url;
-  return '<a href="' + url + '">' + parser.host + '</a>';
+  return '<a tabindex="-1" href="' + url + '">' + parser.host + '</a>';
 });
 
 var images = {};
@@ -69,13 +68,28 @@ $('#search').on('search', updateSearchSession);
 var BookmarkView = new (Backbone.View.extend({
   session: Session,
   events: {
+    'keyup .panel' : function(e) {
+      if(e.keyCode === 13) {
+        $(e.target).focus().trigger('click');
+      }
+    },
     'click .tags .editTags' : function(e) {
       console.log('editTags');
+      var target = $(e.target).parents('.panel');
+      target.toggleClass('editing');
+      console.log(target);
       e.preventDefault();
+      e.stopImmediatePropagation();
+      $('#masonry').masonry();
       return false;
     },
     'click .tags li' : function(e) {
-      console.log('tag');
+      var target = $(e.target).parents('.panel');
+      if(target.hasClass('editing')) {
+        e.stopImmediatePropagation();
+        e.preventDefault();
+        return false;
+      }
       e.preventDefault();
       return false;
     },
@@ -98,8 +112,8 @@ var BookmarkView = new (Backbone.View.extend({
         console.log('esc')
       }
     },
-    'click .panel' : function(e) {
-      var bookmark = this.collection.get($(e.target).parents('.panel').data('url'));
+    'click .panel:not(.editing)' : function(e) {
+      var bookmark = this.collection.get($(e.target).data('url'));
       if(bookmark) {
         chrome.tabs.create({
           url: bookmark.get('url'),
@@ -162,7 +176,6 @@ var BookmarkView = new (Backbone.View.extend({
 // }
 setTimeout(function() {
   $('#search').focus();
-  console.log('called')
 }, 500);
 
 var populateBookmarks = function() {
