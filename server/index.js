@@ -38,6 +38,7 @@ app.configure(function(){
     var filePath = __dirname +'/images' + req.path;
     if(!fs.existsSync(filePath)) {
       return webshot(url.replace('.jpg',''), filePath, webshotOptions, function(err) {
+        console.log(err)
         next();
       });
     }
@@ -47,3 +48,4 @@ app.configure(function(){
 });
 
 app.listen(3000);
+console.log('server listening');
