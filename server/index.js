@@ -35,9 +35,10 @@ app.configure(function(){
     req.url = '/' + md5(req.path) + '.jpg?dim=' + size;
     req.query.dim = size;
     var filePath = __dirname +'/images' + req.path;
+        console.log(req.url)
+
     if(!fs.existsSync(filePath)) {
       return webshot(url.replace('.jpg',''), filePath, webshotOptions, function(err) {
-        console.log(req.url)
         next();
       });
     }
