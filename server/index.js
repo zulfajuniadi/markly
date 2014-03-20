@@ -26,7 +26,6 @@ app.configure(function(){
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
   });
-  app.use(express.bodyParser());
   app.use('/images', function(req, res, next){
     var size = '284';
     var url = decodeURIComponent(req.path.replace('/', ''));
@@ -38,7 +37,7 @@ app.configure(function(){
     var filePath = __dirname +'/images' + req.path;
     if(!fs.existsSync(filePath)) {
       return webshot(url.replace('.jpg',''), filePath, webshotOptions, function(err) {
-        console.log(err)
+        console.log(req.url)
         next();
       });
     }
